@@ -1,0 +1,19 @@
+singleuser:
+  cpu:
+    limit: 1
+    guarantee: 0.5
+  memory:
+    limit: 2G
+    guarantee: 1G
+  defaultUrl: "/lab"
+  serviceAccountName: spark
+  image:
+    name: 192.168.39.64:5000/singleuser
+    tag: test
+    pullPolicy: Never
+    pullSecrets: []
+  # env:                              # this is locked down
+  #   - name: PYSPARK_DRIVER_PYTHON
+  #     value: "/usr/bin/python3.9"
+  #   - name: PYSPARK_PYTHON
+  #     value: "/usr/bin/python3.9"
