@@ -55,7 +55,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   hostPath:
     path: /data/pv0001/
 ---
@@ -67,3 +67,35 @@ metadata:
 type: Opaque
 data:
   MSSQL_SA_PASSWORD: cGFzc3dvcmQxMjM=
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mssql-svc
+spec:
+  type: LoadBalancer
+  selector:
+    statefulset.kubernetes.io/pod-name: mssql-0
+  ports:
+  - protocol: TCP
+    port: 1433
+    targetPort: 1433
+    name: tcpsql
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app: mssql
+#   name: mssql-svc
+# spec:
+#   ports:
+#   - port: 1443
+#     protocol: TCP
+#     targetPort: 1443
+#     name: tcpsql
+#     nodePort: 31443
+#   selector:
+#     statefulset.kubernetes.io/pod-name: mssql-0
+#   type: NodePort
