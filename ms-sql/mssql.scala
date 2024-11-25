@@ -3,11 +3,8 @@ import java.sql.Connection
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.SparkSession
-
 import org.apache.spark.sql.types.{StructType, StructField, StringType,IntegerType};
 import java.sql.ResultSet
-
-import spark.implicits._
 
 val username = "sa"
 val pass = "password123"

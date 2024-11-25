@@ -52,3 +52,6 @@ NOTE:
             a. issue retrieving out parameter
         2. scala
             b. use java native sql classes
+    9. execute unit test
+        1. cd ms-sql/unit-testing
+        2. /opt/mssql-tools/bin/sqlcmd -No -S "192.168.39.110,32611" -U sa -C -P password123 -i test1.sql
